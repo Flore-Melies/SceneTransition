@@ -8,7 +8,6 @@ public class SceneLoader : MonoBehaviour
 
     [SerializeField] private string sceneToLoadName; // Scene name in build settings
 
-    private Animator loadingAnimator;
 
     /// <summary>
     /// Launched when there's a click on the button in the scene, therefore the public
@@ -29,7 +28,7 @@ public class SceneLoader : MonoBehaviour
         // Making the loading screen persistent after we unloaded the scene
         DontDestroyOnLoad(loadingScreenInstance);
         // Getting the loading screen animator
-        loadingAnimator = loadingScreenInstance.GetComponent<Animator>();
+        var loadingAnimator = loadingScreenInstance.GetComponent<Animator>();
         // Getting current animator state to retrieve the length in seconds of the actual animation
         var currentAnimTime = loadingAnimator.GetCurrentAnimatorStateInfo(0).length;
         // Start loading the scene in the background
